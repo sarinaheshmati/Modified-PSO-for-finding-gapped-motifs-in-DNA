@@ -69,8 +69,6 @@ A common limitation of these methods is their handling of gaps in motifs. Many m
 
 The proposed method, **+PSO**, adapts Particle Swarm Optimization to address these challenges by introducing a discrete search space. In this approach:
 
-<img width="358" alt="Screenshot 1403-06-06 at 10 49 47 AM" src="https://github.com/user-attachments/assets/bf7fa1dc-c835-4312-a9a3-318c19f0fe66">
-
 - **Representation**: Each particle represents a motif sequence of length `l` composed of characters A, C, G, and T. This discrete representation aligns with the biological nature of motifs and enables efficient exploration of the solution space.
 
 - **Discrete Search Space**: To handle longer sequences effectively, the algorithm operates in a discrete, l-dimensional space, where each dimension corresponds to one of the four nucleotide options.
@@ -87,6 +85,8 @@ Here is a concise description of the methodology section, focusing on the algori
 ## Methodology
 
 ### Algorithm Overview
+
+<img width="358" alt="Screenshot 1403-06-06 at 10 49 47 AM" src="https://github.com/user-attachments/assets/bf7fa1dc-c835-4312-a9a3-318c19f0fe66">
 
 The core of our method is a Particle Swarm Optimization (PSO) algorithm designed to identify gapped motifs in genomic sequences. Below is an outline of the algorithm:
 
@@ -141,13 +141,17 @@ To balance efficiency with accuracy, the following approach is used:
    - Compute the Position Weight Matrix (PWM) based on this profile.
 
 3. **Fitness Calculation**:
-   - The fitness score is computed using the PWM. The scoring formula is as follows (place image of formula here):
+   - The fitness score is computed using the PWM. The scoring formula is as follows:
+<img width="281" alt="Screenshot 1403-06-06 at 11 05 23 AM" src="https://github.com/user-attachments/assets/260411f4-e9bb-4ce1-99ca-d02e8b5bd5ea">
+
      - The formula calculates the matching score between a particle \( x = x_1 x_2 x_3 \ldots x_n \) and a subsequence \( y = y_1 y_2 y_3 \ldots y_n \).
      - Here, \( p_a \) represents the background probability of character \( a \), estimated by analyzing the occurrence of each of the four nucleotides in the input sequences.
      - This background probability is used to penalize matches with more common nucleotides, as these are more likely to occur by chance.
 
 4. **Final Matching Score**:
-   - The final matching score is calculated for each \( l \)-length match using the PWM. The formula used is (place image of formula here):
+   - The final matching score is calculated for each \( l \)-length match using the PWM. The formula used is:
+<img width="231" alt="Screenshot 1403-06-06 at 11 06 34 AM" src="https://github.com/user-attachments/assets/3a73a189-bb35-4d24-b7e5-8e378de6515e">
+
      - Here, \( fb(j) \) denotes the normalized occurrence of nucleotide \( b \) in column (position) \( j \) of the PWM.
 
 This methodology ensures that the algorithm efficiently finds and accurately scores potential motifs in the genomic sequences.
@@ -177,8 +181,12 @@ Given the discrete nature of the search space, the update rule for particles mus
    - A random sequence: \( X_4 \)
 
 2. **Update Formula**:
-   - The update rule for each character in the particle is as follows (place formula image here):
-     - Here, \( r_i \) are random values between 0 and 1, and \( c_i \) are hyperparameters that determine the impact of each \( X_i \). These hyperparameters were selected based on multiple experiments (place image of values here).
+   - The update rule for each character in the particle is as follows:
+<img width="388" alt="Screenshot 1403-06-06 at 11 07 40 AM" src="https://github.com/user-attachments/assets/1ab9517c-bc5f-4476-81ef-e0001c665c7c">
+
+     - Here, \( r_i \) are random values between 0 and 1, and \( c_i \) are hyperparameters that determine the impact of each \( X_i \). These hyperparameters were selected based on multiple experiments.
+<img width="348" alt="Screenshot 1403-06-06 at 11 08 24 AM" src="https://github.com/user-attachments/assets/8e747320-5e1d-42d6-9bc2-3b7d55e4c30f">
+
    - The decision to update each character in the particle is influenced by the maximum value of \( c_i \times r_i \times \text{weight}(X_i) \), where \( \text{weight}(X_i) \) is a weight assigned based on the nucleotide's background probability. Higher probabilities lead to lower weights.
 
 3. **Termination Criteria**:
