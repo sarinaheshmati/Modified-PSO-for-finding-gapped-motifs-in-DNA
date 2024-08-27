@@ -240,7 +240,9 @@ Where:
 - \( p \) = predicted binding sites
 - \( t \) = true binding sites
 
-A table of results for motifs such as TBP, SRF, MYOD, MEF2, E2F, ERE, CRP, and CREB is provided (insert 4-column, 10-row table here).
+A table of results for motifs such as TBP, SRF, MYOD, MEF2, E2F, ERE, CRP, and CREB is provided.
+
+![download](https://github.com/user-attachments/assets/842f7c6a-137f-4081-b396-72fb237849a4)
 
 ---
 
