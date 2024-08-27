@@ -4,7 +4,7 @@
 
 Motifs are short, recurring sequences in genomic data that have been conserved through evolution due to their functional importance. One key category of motifs includes Transcription Factor Binding Sites (TFBS), which play a critical role in gene regulation. Identifying these motifs within large sequences can greatly aid in gene discovery, understanding gene functions, and elucidating gene interactions.
 
-This project leverages a Particle Swarm Optimization (PSO) algorithm, a type of swarm intelligence technique, to locate gapped motifs in genomic sequences. PSO is inspired by the social behavior of particles (agents) moving through a search space. Each particle adjusts its position based on personal experience and collective knowledge, converging toward optimal solutions.
+This project (which is based on this[paper]((https://biodatamining.biomedcentral.com/articles/10.1186/1756-0381-3-9))) leverages a Particle Swarm Optimization (PSO) algorithm, a type of swarm intelligence technique, to locate gapped motifs in genomic sequences. PSO is inspired by the social behavior of particles (agents) moving through a search space. Each particle adjusts its position based on personal experience and collective knowledge, converging toward optimal solutions.
 
 ## Key Features
 
